@@ -1,0 +1,17 @@
+Github:
+
+https://github.com/SidBrandon/Week10_Lab_part1 
+
+Part 1 Reflection
+	The purporse of this application is to store a name of most likely a task, I used people 
+	names. The actions it supports are storing a task name and the number that task goes by, 
+	I think it's the ordered they're entered, then that task can be marked as completed or
+	deleted. The data is stored in tasks.json where the data is updated as the list is
+	updated.
+	
+Part 6 Reflection
+I think the hardest part of understanding this project for me was committing my changes. It could be that maybe I messed with my tasks.json file to make sure my python code was still working find, but I don't think I messed with it. My program has issues with git checkout main, saying that I still have changes in my tasks.json file that I needed to commit. I had to ask CoPilot for help because I could not get it to like me.
+The change that was the easiest to make was definitely the task count. I was able to easily just put the def count and then have it tell me if the tasks were either at zero or not along with how many. When I put it in I did forget to make a elif command for it, but that was a quick and easy fix.
+The changes I made did not have me doing that much debugging. They all worked pretty well, I just tested them to make sure nothing went wrong. The one I would say I tested the most was probably the priority. I did a lot of adding and deleting tasks just to make sure there were no errors or the default medium would stop working. If the priority moved the tasks up the list like high moving up before all of the others, then I probably would have ran into errors that would need testing and debugging.
+GitHub definitely helped manage my work. I'm not too sure how, the many commands we used kind of confused me. Getting the program forked was nice and easy and I was able to put my name and email in fine, update everything, make sure my file is where it's supposed to be and start programming just fine. Other than the git checkout main not liking me for a little bit everything went smoothly and it was a good experience overall. Everything saved well and my work is stored properly.
+I think if I had more time, I would like to improve the priority and how the list is organized. The priority would be fun to mess with to maybe give values to them, high is 1, medium is 2, and low is 3. I could use those assigned values to give the list a priority like the help desk priority student so that if a task is high it will go above the others and any later tasks that are marked high will line up behind it. There could also be an additional way to organize the line. I think that when a tasks is completed I could have put that that it is pushed to the bottom of the list and out of the way of the other incomplete tasks.
