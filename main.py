@@ -7,20 +7,29 @@ def load_tasks():
     if not os.path.exists(FILE_NAME):
         return []
     with open(FILE_NAME, "r") as file:
-        return json.load(file)
+        tasks = json.load(file)
+        # Ensure all tasks have priority for backward compatibility
+        for task in tasks:
+            if "priority" not in task:
+                task["priority"] = "medium"
+        return tasks
 
 def save_tasks(tasks):
     with open(FILE_NAME, "w") as file:
         json.dump(tasks, file, indent=4)
 
 def add_task(tasks, description):
+    priority = input("Enter priority (low/medium/high) or press Enter for default (medium): ").strip().lower()
+    if priority not in ["low", "medium", "high"]:
+        priority = "medium"
     task = {
         "description": description,
-        "completed": False
+        "completed": False,
+        "priority": priority
     }
     tasks.append(task)
     save_tasks(tasks)
-    print("Task added successfully")
+    print("Task saved successfully")
 
 def list_tasks(tasks):
     if len(tasks) == 0:
@@ -29,8 +38,14 @@ def list_tasks(tasks):
 
     for i, task in enumerate(tasks):
         status = "Done" if task["completed"] else "Not Done"
-        print(f"{i+1}. {task['description']} [{status}]")
-
+        priority = task.get("priority", "medium").capitalize()
+        print(f"{i+1}. {task['description']} [{status}] - Priority: {priority}")
+def count(tasks):
+    if len(tasks) == 0:
+        print ("No tasks")
+        return
+    print(f"Total tasks: {len(tasks)}"
+          )
 def complete_task(tasks, index):
     if index < 0 or index >= len(tasks):
         print("Invalid task number")
@@ -63,6 +78,9 @@ def main():
         elif command == "complete":
             num = int(input("Enter task number: ")) - 1
             complete_task(tasks, num)
+        
+        elif command == "count":
+            count(tasks)
 
         elif command == "delete":
             num = int(input("Enter task number: ")) - 1
